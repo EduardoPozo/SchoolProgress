@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- 
+  File: GuiAssignmentSix.html
+  91.461 Assignment 6: Creating an Interactive Dynamic Table
+  Created By: Eduardo Pozo, UMass Lowell Computer Science Student
+  Contact Info: Eduardo_Pozo@student.uml.edu
+  Description: This file will take user input, in the form of integers,
+  and create a multiplication table with the range provided by the user.
+  Created: 10/22/14
+  Last modified: 10/27/14
+-->
+  <head>
+    <title>Multiplication Table</title>
+    <meta charset="UTF-8">
+    
+    <!--Import the stylesheet and jquery-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="AssignmentSixStyleSheet.css"/>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    
+    <!--The script that creates the table-->
+    <script>
+      
+      function isInt(n){return (n % 1 === 0);}
+      
+      $(document).ready(function(){
+        $("#tableForm").submit(function(){
+          //Gather the info form the textboxes
+          var xStart = parseInt(document.getElementById("x1").value);
+          var xEnd = parseInt(document.getElementById("x2").value);
+          var yStart = parseInt(document.getElementById("y1").value);
+          var yEnd = parseInt(document.getElementById("y2").value);
+          var check = true;
+          //Check to see if any NaN's were given.  Note this does not work if
+          //first a number was entered then a char.  An int will still be read
+          if(isNaN(xStart) || !(isInt(document.getElementById("x1").value))){
+            $("#errorMessageXStart").html("The start of X must be an integer.");
+            check = false;
+          }
+          else{
+            $("#errorMessageXStart").html("");
+          }
+          
+          if(isNaN(xEnd) || !(isInt(document.getElementById("x2").value))){
+            $("#errorMessageXEnd").html("The end of X must be an integer.");
+            check = false;
+          }
+          else{
+            $("#errorMessageXEnd").html("");
+          }
+          
+          if(isNaN(yStart) || !(isInt(document.getElementById("y1").value))){
+            $("#errorMessageYStart").html("The start of Y must be an integer.");
+            check = false;
+          }
+          else{
+            $("#errorMessageYStart").html("");
+          }
+          
+          if(isNaN(yEnd) || !(isInt(document.getElementById("y2").value))){
+            $("#errorMessageYEnd").html("The end of Y must be an integer.");
+            check = false;
+          }
+          else{
+            $("#errorMessageYEnd").html("");
+          }
+          //if all textboxes are correct we then proceed to make the table
+          if(check === true){
+            //clear the previous table
+            $("#makeTable").html("");
+            var mainTable = $("<table>");
+            var row = $("<tr>");
+            var i;
+            var j;
+            //create the top row 
+            row.append($("<td id='topRow'>").html("x"));
+            
+            for(i = 0; xStart + i <= xEnd; i++){
+              row.append($("<td id='topRow'>").html(xStart + i));
+            }
+            mainTable.append(row);
+            
+            //A loop that creates a row, adds it and creates the next row
+            for(j = 0; yStart + j <= yEnd; j++){
+              row = $("<tr>");
+              row.append($("<td id='leftSide'>").html(yStart+j));
+              
+              for(i = 0; xStart + i <= xEnd; i++){
+                row.append($("<td id='cells'>").html((xStart+i)*(yStart+j)));
+              }
+              mainTable.append(row);
+            }
+            $("#makeTable").append(mainTable);
+          }
+          else{
+            $("#makeTable").html("");
+          }
+          
+          return false;
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <h1>Multiplication Table</h1>
+    
+    <div id="instructions">
+      <p>
+        Please input integers to create a multiplication table.
+      </p><!--Ask Dr.Heines if it's bad practice to insert a line break-->
+    </div>
+    
+    <!--This form holds the text boxes for the user's inputs-->
+    <form id="tableForm" method="post" action="">
+        <div id="axis">
+          The start of the X - Axis
+          <input type="text" name="x1" id="x1">
+          The end of the X - Axis
+          <input type="text" name="x2" id="x2">
+        </div>
+        <div id="axis">
+          The start of the Y - Axis
+          <input type="text" name="y1" id="y1">
+          The end of the Y - Axis
+          <input type="text" name="y2" id="y2">
+          
+          <!--To display errors-->
+          <p id="errorMessageXStart" class="error"></p>
+          <p id="errorMessageXEnd" class="error"></p>
+          <p id="errorMessageYStart" class="error"></p>
+          <p id="errorMessageYEnd" class="error"></p>
+        </div>
+        <input type="submit" value="Create Table" id="subBut">
+        <div id="makeTable"></div>
+    </form>
+  </body>
+</html>

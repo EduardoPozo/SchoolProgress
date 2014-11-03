@@ -1,0 +1,91 @@
+/*
+File: AssignmentSixStyleSheet.css
+91.461 Assignment 6: Creating an Interactive Dynamic Table
+Author: Eduardo Pozo, UMass Lowell Computer Science Student
+Contact Info: Eduardo_Pozo@student.uml.edu
+Description: This file adds color, a background image, and formats 
+the .html file for this assignment making it more appealing and readable.
+Date Created: 10/23/14
+Last Updated 10/31/14px*/
+
+body {
+  background-image: url(http://www.freechristmaswallpapers.net/images/wallpapers/Lonely-Christmas-Tree-800-508849.jpeg);
+}
+h1{
+  color: silver;
+  background-color: red;
+  width: 450px;
+  text-align: center;
+  border: 1px solid black;
+  border-radius: 25px;
+}
+/*Changing the small instruction box*/
+#instructions{
+  border: 1px solid black;
+  background-color: red;
+  color: silver;
+  width: 400px;
+  text-align: center;
+  font-weight: bold;
+  border-radius: 25px;
+}
+
+#tableForm {
+  width: 450px;
+}
+  /*This selects, and resizes the the text boxes to a more manageable size*/
+input[type=text]{
+  width: 50px;
+}
+#axis {
+  margin: 5px;
+  padding: 0px;
+}
+/*special format for all my error messages*/
+.error {
+  color: silver;
+  font-weight: bold;
+  font-size: 16px;
+}
+/*style the cells*/
+td{
+  border: 1px solid black;
+}
+#topRow, #leftSide{
+  background-color: red;
+  color: white;
+}
+/*Style the table output to have border and scrollable*/
+table{
+  text-align: center;
+  /*border: 1px solid black; not needed with image*/
+  height: 450px;
+  width: 450px;
+}
+#makeTable{
+  width: 500px;
+  height: 500px;
+  overflow: auto;
+}
+#axis{
+  background-color: red;
+  border: 1px solid black;
+  border-radius: 25px;
+  padding: 2px;
+  color: silver;
+  text-align: center;
+  font-size: 14px;
+  font-weight: bold;
+}
+/*make the text boxes a little more readable*/
+#y1, #y2, #x1, #x2{
+  border-radius: 25px;
+}
+#cells{
+  color: silver;
+  background-color: blue;
+}
+#subBut{
+  border-radius: 25px;
+  /*float: left;*/
+}
