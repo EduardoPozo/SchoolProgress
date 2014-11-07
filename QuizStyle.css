@@ -1,0 +1,29 @@
+/*
+File: AssignmentSixStyleSheet.css
+91.461 In class exercise: Creating an Interactive Dynamic Table
+Author: Eduardo Pozo, UMass Lowell Computer Science Student
+Contact Info: Eduardo_Pozo@student.uml.edu
+Description: Modifies a single page application
+Date Created: 11/05/14
+Last Updated: 11/05/14
+*/
+/*add a background image, does not display the full image*/
+body{
+background-image: url(http://upload.wikimedia.org/wikipedia/commons/d/d1/Mount_Everest_as_seen_from_Drukair2_PLW_edit.jpg);
+}
+p{
+  text-align: center;
+  font-size: 20px;
+  font-size: 200%;
+  font-weight: bold;
+}
+/*The main div where the content is displayed from*/
+#content{
+  width: 500px;
+  margin-left: 400px;
+  text-align: center;
+}
+#navbar{
+  text-align: center;
+  font-size: 150%;
+}
