@@ -8,53 +8,53 @@ here...https://github.com/curran/screencasts/blob/gh-pages/navigation/examples/e
 Created: 11/05/2014
 Last Modified: 11/05/2014
  */
+// Gets the appropriate content for the given fragment identifier.
 function getContent(fragmentId, callback){
-  //create a variable that gets a file
-  var request = new XMLHttpRequest();
-  
-  //callback function using the text from the variable that holds a file
-  request.onload = function(){
-    callback(request.responseText);
-  };
-  request.open("GHT", fragmentId + ".html");
-  request.send(null);
+// Create a new AJAX request for fetching the partial HTML file.
+var request = new XMLHttpRequest();
+// Call the callback with the content loaded from the file.
+request.onload = function () {
+callback(request.responseText);
+};
+// Fetch the partial HTML file for the given fragment id.
+request.open("GET", fragmentId + ".html");
+request.send(null);
 }
-//This function changes the active link of a page by cycling through until it finds the correct #value.
+// Sets the "active" class on the active navigation link.
 function setActiveLink(fragmentId){
-  //instantiate all the variables needed
-  var navbarDiv = document.getElementById("navbar"),
-          links = navbarDiv.children,//get all the children and create an array
-          i, link, pageName;
-  for(i = 0; i < links.length; i++){
-    link = links[i];
-    //skip over the hash value and store the link in pageName
-    pageName = link.getAttribute("href").substr[1];
-    if(pageName === fragmentId){
-      link.setAttribute("class", "active");
-    }
-    else{
-      link.removeAttribute("class");
-    }
-  }
+var navbarDiv = document.getElementById("navbar"),
+links = navbarDiv.children,
+i, link, pageName;
+for(i = 0; i < links.length; i++){
+link = links[i];
+pageName = link.getAttribute("href").substr(1);
+if(pageName === fragmentId) {
+link.setAttribute("class", "active");
+} else {
+link.removeAttribute("class");
 }
-//uses fragmentId to display information based on current state
+}
+}
+// Updates dynamic content based on the fragment identifier.
 function navigate(){
-  var contentDiv = document.getElementById("content");
-  
-  fragmentId = location.hash.substr(1);
-  //uses send fragmentId and and a function that set content divs content
-  getContent(fragmentId, function(content){
-    contentDiv.innerHTML=content;
-  });
-  //sets the new active link
-  setActiveLink(fragmentId);
+// Get a reference to the "content" div.
+var contentDiv = document.getElementById("content"),
+// Isolate the fragment identifier using substr.
+// This gets rid of the "#" character.
+fragmentId = location.hash.substr(1);
+// Set the "content" div innerHTML based on the fragment identifier.
+getContent(fragmentId, function (content) {
+contentDiv.innerHTML = content;
+});
+// Toggle the "active" class on the link currently navigated to.
+setActiveLink(fragmentId);
 }
-//This is to display the initial value before any hash value has been loaded.
-//Calling navigate alone to set off this case.
-if(!location.hash){
-  location.hash="#home";
+// If no fragment identifier is provided,
+if(!location.hash) {
+// default to #home.
+location.hash = "#home";
 }
+// Navigate once to the initial fragment identifier.
 navigate();
-
-//The event when you change the page
-window.addEventListener("hashchange",navigate);
+// Navigate whenever the fragment identifier value changes.
+window.addEventListener("hashchange", navigate)
