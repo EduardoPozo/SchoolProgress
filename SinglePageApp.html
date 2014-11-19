@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang = "en">
+    <!--
+
+  -->
+  <head>
+    <title>Assignment 7, building a single page application</title>
+    <meta charset="UTF-8">
+    
+    <!--Load jquery-->
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    
+    <!--Loads the file that reads the JSON file and places the info in the content
+    div below, kept separate for neatness-->
+    <script src="AjaxReader.js"></script>
+  </head>
+  <body>
+    <!-- Where the content of the JSON file will display.-->
+    <div id="blogPost"></div>
+    
+    <!--The navigation bar for the page.-->
+    <div id="navbar">
+      <a href="#home">Home</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </div>
+    
+    <!--The content that will be displayed when the a link from the nav bar is clicked-->
+    <div id="content"></div>
+    
+    <!--This script changes the hash values of the pages.-->
+    <script src="NavBarCode.js"></script>
+    <!--HTTP/1.1 501 Method Not Implemented-->
+  </body>
+</html>
