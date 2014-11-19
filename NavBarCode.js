@@ -1,60 +1,60 @@
 /* 
-File: AssignmentFiveSS.css 
-Author: Eduardo Pozo UMass Lowell Computer Science Major
-Contact Info: eduardo_pozo@student.uml.edu
-Description: This file will handle changing the page using #values.  This code
-was imitated from Curran Kelleher's coding examples.  His examples can be found
-here...https://github.com/curran/screencasts/blob/gh-pages/navigation/examples/examples.json
-Created: 11/05/2014
-Last Modified: 11/05/2014
+ File: AssignmentFiveSS.css 
+ Author: Eduardo Pozo UMass Lowell Computer Science Major
+ Contact Info: eduardo_pozo@student.uml.edu
+ Description: This file will handle changing the page using #values.  This code
+ was imitated from Curran Kelleher's coding examples.  His examples can be found
+ here...https://github.com/curran/screencasts/blob/gh-pages/navigation/examples/examples.json
+ Created: 11/05/2014
+ Last Modified: 11/05/2014
  */
 // Gets the appropriate content for the given fragment identifier.
-function getContent(fragmentId, callback){
+function getContent(fragmentId, callback) {
 // Create a new AJAX request for fetching the partial HTML file.
-var request = new XMLHttpRequest();
+  var request = new XMLHttpRequest();
 // Call the callback with the content loaded from the file.
-request.onload = function () {
-callback(request.responseText);
-};
+  request.onload = function () {
+    callback(request.responseText);
+  };
 // Fetch the partial HTML file for the given fragment id.
-request.open("GET", fragmentId + ".html");
-request.send(null);
+  request.open("GET", fragmentId + ".html");
+  request.send(null);
 }
 // Sets the "active" class on the active navigation link.
-function setActiveLink(fragmentId){
-var navbarDiv = document.getElementById("navbar"),
-links = navbarDiv.children,
-i, link, pageName;
-for(i = 0; i < links.length; i++){
-link = links[i];
-pageName = link.getAttribute("href").substr(1);
-if(pageName === fragmentId) {
-link.setAttribute("class", "active");
-} else {
-link.removeAttribute("class");
-}
-}
+function setActiveLink(fragmentId) {
+  var navbarDiv = document.getElementById("navbar"),
+          links = navbarDiv.children,
+          i, link, pageName;
+  for (i = 0; i < links.length; i++) {
+    link = links[i];
+    pageName = link.getAttribute("href").substr(1);
+    if (pageName === fragmentId) {
+      link.setAttribute("class", "active");
+    } else {
+      link.removeAttribute("class");
+    }
+  }
 }
 // Updates dynamic content based on the fragment identifier.
-function navigate(){
+function navigate() {
 // Get a reference to the "content" div.
-var contentDiv = document.getElementById("content"),
+  var contentDiv = document.getElementById("content"),
 // Isolate the fragment identifier using substr.
 // This gets rid of the "#" character.
-fragmentId = location.hash.substr(1);
+          fragmentId = location.hash.substr(1);
 // Set the "content" div innerHTML based on the fragment identifier.
-getContent(fragmentId, function (content) {
-contentDiv.innerHTML = content;
-});
+  getContent(fragmentId, function (content) {
+    contentDiv.innerHTML = content;
+  });
 // Toggle the "active" class on the link currently navigated to.
-setActiveLink(fragmentId);
+  setActiveLink(fragmentId);
 }
 // If no fragment identifier is provided,
-if(!location.hash) {
+if (!location.hash) {
 // default to #home.
-location.hash = "#home";
+  location.hash = "#home";
 }
 // Navigate once to the initial fragment identifier.
 navigate();
 // Navigate whenever the fragment identifier value changes.
-window.addEventListener("hashchange", navigate)
+window.addEventListener("hashchange", navigate);
