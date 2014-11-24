@@ -1,0 +1,32 @@
+/*Set a background image and maximize the size to fit the page non-repeating*/
+body{
+  background-image: url(http://images.fotocommunity.de/bilder/chile/atacamawueste/atacama-hochland-chile-nahe-ojos-del-salado-65cbbc50-4b25-44a0-97df-48219e078921.jpg);
+  background-repeat: no-repeat;
+  background-size: 100%;
+}
+h1{
+  text-align: center;
+}
+#aboutHead{
+  color: yellow;
+}
+#homeHead{
+  color: purple;
+}
+/*Making the navbar float to the left*/
+#content{
+  /*background-color: blue; Used this to find the work area*/
+  border-style: solid;
+  margin-left: auto;
+  margin-right: auto;
+  width: 600px;
+}
+/*Modifying the navbar location here*/
+#navbar{
+  float: left;
+}
+/*Getting rid of the dots for the unordered list, modifying the list appearance here*/
+#navLinks{
+  list-style-type: none;
+  font-size: 1.5em;
+}

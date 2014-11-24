@@ -1,29 +1,35 @@
 <!DOCTYPE html>
 <html lang = "en">
-    <!--
-
+  <!--
+  File: SinglePageApp.html
+  Author: Eduardo Pozo UMass Lowell Computer Science Major
+  Contact Info: eduardo_pozo@student.uml.edu
+  Description: This page will use hash values to change the page, but not have to reload the page.
+  The javascript is kept on separate files to keep this page short and concise.
+  Created: 11/05/2014
+  Last Modified: 11/20/2014
   -->
   <head>
     <title>Assignment 7, building a single page application</title>
     <meta charset="UTF-8">
     
-    <!--Load jquery-->
+    <!--Load jquery first, then the css stlyesheet-->
     <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="SinglePageAppSS.css">
     
     <!--Loads the file that reads the JSON file and places the info in the content
     div below, kept separate for neatness-->
     <!--<script src="AjaxReader.js"></script>-->
   </head>
   <body>
-    <!-- Where the content of the JSON file will display.-->
-    <div id="blogPost"></div>
-    
     <!--The navigation bar for the page.-->
     <div id="navbar">
-      <a href="#home">Home</a>
-      <a href="#about">About</a>
-      <a href="#contact">Contact</a>
-      <a href="#blog">Blog</a>
+      <ul id="navLinks">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li><a href="#blog">Blog</a></li>
+      </ul>
     </div>
     
     <!--The content that will be displayed when the a link from the nav bar is clicked-->
