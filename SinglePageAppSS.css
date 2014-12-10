@@ -1,10 +1,21 @@
-/*Set a background image and maximize the size to fit the page non-repeating*/
+/*File: SinglePageAppSS.css
+  Author: Eduardo Pozo UMass Lowell Computer Science Major
+  Contact Info: eduardo_pozo@student.uml.edu
+  Description: This page alters the appearance of the SinglePageApp.html file.
+  The main focus is to make the data in the content div stand out in front of the
+  background image I have set.
+  Created: 11/05/2014
+  Last Modified: 12/10/2014*/
+
+/*Set a background image and maximize the size to fit the page non-repeating.
+  I also added a different font loaded from googlefonts (suggested by Matt Richie)*/
 body{
   background-image: url(http://images.fotocommunity.de/bilder/chile/atacamawueste/atacama-hochland-chile-nahe-ojos-del-salado-65cbbc50-4b25-44a0-97df-48219e078921.jpg);
   background-repeat: no-repeat;
   background-size: 100%;
   font-family: 'EB Garamond', serif;
 }
+/*All information displayed in the content div share both the next two attributes*/
 h1{
   color: black;
   text-align: center;
@@ -14,8 +25,8 @@ p{
   margin: 10px;
   font-weight: bold;
 }
-/*this makes the display place for the content see through and makes any extra data
-flow with a scroll option*/
+/*This makes the display place for the content see through.  A border is established
+  and placed in the middle of the screen*/
 #content{
   /*background-color: blue; Used this to find the work area*/
   border: 1px solid;
@@ -35,6 +46,8 @@ flow with a scroll option*/
   /*width: 80px;
   background-color: yellow;*/
 }
+/*The following two changes to the 'a' tag will make it a different color when idle
+  and when someone hovers over it*/
 a{
   color: white;
   border: 1px solid;
@@ -43,7 +56,8 @@ a{
 a:hover{
   color: black;
 }
-/*When selected it will highlight in blue, but won't stick*/
+/*When 'a' tags are selected it will highlight in blue, but won't stick.
+  Search for solutions to make the nackground change permanent.*/
 a:active{
   background-color: blue;
 }
@@ -52,12 +66,18 @@ a:active{
   list-style-type: none;
   font-size: 1.5em;
 }
+/*Making my email a different color so it shows up better on this background*/
 #myEmail{
   color: blue;
   border: 0px;
   text-decoration: underline;
 }
-/*Giving bolded text to list items, doesn't seem to work of p>*/
+/*Giving bolded text to list items, doesn't seem to work off 'p' tag change*/
 li{
   font-weight: bold;
 }
+/*Areas that can be improved
+  a:active
+  body
+  myEmail
+*/
