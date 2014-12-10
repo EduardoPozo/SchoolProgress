@@ -1,13 +1,15 @@
-/* 
- File: AssignmentFiveSS.css 
- Author: Eduardo Pozo UMass Lowell Computer Science Major
- Contact Info: eduardo_pozo@student.uml.edu
- Description: This file will handle changing the page using #values.  This code
- was imitated from Curran Kelleher's coding examples.  His examples can be found
- here...https://github.com/curran/screencasts/blob/gh-pages/navigation/examples/examples.json
- Created: 11/05/2014
- Last Modified: 11/05/2014
- */
+/*File: AssignmentFiveSS.css 
+  Author: Eduardo Pozo UMass Lowell Computer Science Major
+  Contact Info: eduardo_pozo@student.uml.edu
+  Description: This file will handle changing the page using #values.  This code
+  was taken Curran Kelleher's coding examples.  His examples can be found
+  here...https://github.com/curran/screencasts/blob/gh-pages/navigation/examples/examples.json
+  I've slightly modified it by adding an if statement for the #blog case where an
+  Ajax function has been used to read a json and posted here. innerHTML cannot be
+  used to insert a script tag which I had in previous versions.
+  Created: 11/05/2014
+  Last Modified: 12/10/2014*/
+
 // Gets the appropriate content for the given fragment identifier.
 function getContent(fragmentId, callback) {
 // Create a new AJAX request for fetching the partial HTML file.
