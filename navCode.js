@@ -1,89 +1,60 @@
 /* 
-File: AssignmentFiveSS.css 
-Author: Eduardo Pozo UMass Lowell Computer Science Major
-Contact Info: eduardo_pozo@student.uml.edu
-Description: This file will handle changing the page using #values.  This code
-was imitated from Curran Kelleher's coding examples.  His examples can be found
-here...https://github.com/curran/screencasts/blob/gh-pages/navigation/examples/examples.json
-Created: 11/05/2014
-Last Modified: 11/05/2014
+ File: AssignmentFiveSS.css 
+ Author: Eduardo Pozo UMass Lowell Computer Science Major
+ Contact Info: eduardo_pozo@student.uml.edu
+ Description: This file will handle changing the page using #values.  This code
+ was imitated from Curran Kelleher's coding examples.  His examples can be found
+ here...https://github.com/curran/screencasts/blob/gh-pages/navigation/examples/examples.json
+ Created: 11/05/2014
+ Last Modified: 11/05/2014
  */
-function getContent(fragmentId, callback){
-  //create a variable that gets a file
+// Gets the appropriate content for the given fragment identifier.
+function getContent(fragmentId, callback) {
+// Create a new AJAX request for fetching the partial HTML file.
   var request = new XMLHttpRequest();
-  
-  //callback function using the text from the variable that holds a file
-  request.onload = function(){
+// Call the callback with the content loaded from the file.
+  request.onload = function () {
     callback(request.responseText);
   };
-  request.open("GHT", fragmentId + ".html");
+// Fetch the partial HTML file for the given fragment id.
+  request.open("GET", fragmentId + ".html");
   request.send(null);
 }
-//This function changes the active link of a page by cycling through until it finds the correct #value.
-function setActiveLink(fragmentId){
-  //instantiate all the variables needed
+// Sets the "active" class on the active navigation link.
+function setActiveLink(fragmentId) {
   var navbarDiv = document.getElementById("navbar"),
-          links = navbarDiv.children,//get all the children and create an array
+          links = navbarDiv.children,
           i, link, pageName;
-  for(i = 0; i < links.length; i++){
+  for (i = 0; i < links.length; i++) {
     link = links[i];
-    //skip over the hash value and store the link in pageName
-    pageName = link.getAttribute("href").substr[1];
-    if(pageName === fragmentId){
+    pageName = link.getAttribute("href").substr(1);
+    if (pageName === fragmentId) {
       link.setAttribute("class", "active");
-    }
-    else{
+    } else {
       link.removeAttribute("class");
     }
   }
 }
-//uses fragmentId to display information based on current state
-function navigate(){
+// Updates dynamic content based on the fragment identifier.
+function navigate() {
+// Get a reference to the "content" div.
   var contentDiv = document.getElementById("content"),
-  // Isolate the fragment identifier using substr.
-  // This gets rid of the "#" character.
+// Isolate the fragment identifier using substr.
+// This gets rid of the "#" character.
           fragmentId = location.hash.substr(1);
-  //uses send fragmentId and and a function that set content divs content
-  getContent(fragmentId, function(content){
-    contentDiv.innerHTML=content;
-  });
-  //Adding an if statement so that it renders the JSON file if #blog is selected
-  if(fragmentId === blog){
-    //since this method doesn't use the call back function I need to declare content
-    var content = "";
-    //reads the JSon file, this AJAX set up was borrowed from Jesse Heines.
-    //His sample code can be found here
-    jQuery.ajax({
-      async: false,
-      dataType: "json",
-      url: "blog.json",
-      success: function(data){
-        blogPostInfo = data;
-      }
-    });
-    
-    content += "<h1>" + blogPostInfo.title + "</h1>";
-    //loop through all the paragraphs and sentences for the content
-    for ( var para = 0 ; para < blogPostInfo.text.paragraphs.length ; para++ ) {
-      content += "<p class=\"firefox\">" ;
-      for ( var sent = 0 ; sent < blogPostInfo.text.paragraphs[para].length ; sent++ ) {
-        content += blogPostInfo.text.paragraphs[para][sent] + "&nbsp; " ;
-      }
-      content += "</p>" ;
-    }
-    //return the info from the JSON into the content div
+// Set the "content" div innerHTML based on the fragment identifier.
+  getContent(fragmentId, function (content) {
     contentDiv.innerHTML = content;
-  }//This is where Jesse Heine's code ends
-  
-  //sets the new active link
+  });
+// Toggle the "active" class on the link currently navigated to.
   setActiveLink(fragmentId);
 }
-//This is to display the initial value before any hash value has been loaded.
-//Calling navigate alone to set off this case.
-if(!location.hash){
-  location.hash="#home";
+// If no fragment identifier is provided,
+if (!location.hash) {
+// default to #home.
+  location.hash = "#home";
 }
+// Navigate once to the initial fragment identifier.
 navigate();
-
-//The event when you change the page
-window.addEventListener("hashchange",navigate);
+// Navigate whenever the fragment identifier value changes.
+window.addEventListener("hashchange", navigate);
