@@ -3,30 +3,59 @@ body{
   background-image: url(http://images.fotocommunity.de/bilder/chile/atacamawueste/atacama-hochland-chile-nahe-ojos-del-salado-65cbbc50-4b25-44a0-97df-48219e078921.jpg);
   background-repeat: no-repeat;
   background-size: 100%;
+  font-family: 'EB Garamond', serif;
 }
 h1{
+  color: black;
   text-align: center;
+  font-weight: bold;
 }
-#aboutHead{
-  color: yellow;
-}
-#homeHead{
-  color: purple;
+p{
+  margin: 10px;
+  font-weight: bold;
 }
 /*Making the navbar float to the left*/
 #content{
   /*background-color: blue; Used this to find the work area*/
-  border-style: solid;
+  border: 1px solid;
   margin-left: auto;
   margin-right: auto;
-  width: 600px;
+  width: 500px;
+  height: 500px;
+  background-color: white;
+  opacity: 0.7;
 }
 /*Modifying the navbar location here*/
 #navbar{
-  float: left;
+  float: right;
+  font-size: 1.5em;
+  color: black;
+  /*width: 80px;
+  background-color: yellow;*/
+}
+a{
+  color: white;
+  border: 1px solid;
+  text-decoration: none;
+}
+a:hover{
+  color: black;
+}
+/*When selected it will highlight in blue, but won't stick*/
+a:active{
+  background-color: blue;
 }
 /*Getting rid of the dots for the unordered list, modifying the list appearance here*/
 #navLinks{
   list-style-type: none;
   font-size: 1.5em;
+}
+#myEmail{
+  color: blue;
+  border: 0px;
+  text-decoration: underline;
+}
+/*Giving bolded text to list items, doesn't seem to work of p>*/
+li{
+  font-weight: bold;
 }

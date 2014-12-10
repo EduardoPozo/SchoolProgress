@@ -17,19 +17,24 @@
     <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
     <link rel="stylesheet" href="SinglePageAppSS.css">
     
+    <!--Google font adobe garamond-->
+    <link href='http://fonts.googleapis.com/css?family=EB+Garamond' rel='stylesheet' type='text/css'>
+    
     <!--Loads the file that reads the JSON file and places the info in the content
     div below, kept separate for neatness-->
     <!--<script src="AjaxReader.js"></script>-->
   </head>
   <body>
-    <!--The navigation bar for the page.-->
+    <!--Adding a banner-
+    <img id="banner" src="banner.jpg" alt="A tranquil picture of a hippo">-->
+    
+    <!--The navigation bar for the page. Can not use <ul> because the navBarCode
+        reads the first attribute-->
     <div id="navbar">
-      <ul id="navLinks">
-        <li><a href="#home">Home</a></li>
-        <li><a href="#about">About</a></li>
-        <li><a href="#contact">Contact</a></li>
-        <li><a href="#blog">Blog</a></li>
-      </ul>
+      <a href="#home">Home</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+      <a href="#blog">Blog</a>
     </div>
     
     <!--The content that will be displayed when the a link from the nav bar is clicked-->
@@ -42,6 +47,6 @@
         "http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html" under the section 501.-->
     <!--When uploaded to github a similar error was found. "[HTTP/1.1 403 Forbidden 31ms]"
         Made it easier on myself and used Curran's Code, it worked after.-->
-    <script src="NavBarCode.js"></script>
+    <script src="navCode.js"></script>
   </body>
 </html>
