@@ -1,14 +1,15 @@
 <!DOCTYPE html>
 <html lang = "en">
-  <!--
-  File: SinglePageApp.html
-  Author: Eduardo Pozo UMass Lowell Computer Science Major
-  Contact Info: eduardo_pozo@student.uml.edu
-  Description: This page will use hash values to change the page, but not have to reload the page.
-  The javascript is kept on separate files to keep this page short and concise.
-  Created: 11/05/2014
-  Last Modified: 11/20/2014
-  -->
+  <!--File: SinglePageApp.html
+    Author: Eduardo Pozo UMass Lowell Computer Science Major
+    Contact Info: eduardo_pozo@student.uml.edu
+    Description: This page will use hash values to change the page, but not have to reload the page.
+    The javascript is kept on separate files to keep this page short and concise.  There are
+    separate files for blog.html, contact.html, about.html, and home.html.  No documentation
+    is provided for these as they seem to work best without it.
+    Created: 11/05/2014
+    Last Modified: 12/10/2014-->
+  
   <head>
     <title>Assignment 7, building a single page application</title>
     <meta charset="UTF-8">
@@ -25,10 +26,10 @@
     <!--<script src="AjaxReader.js"></script>-->
   </head>
   <body>
-    <!--Adding a banner-
+    <!--Adding a banner-->
     <img id="banner" src="banner.jpg" alt="A tranquil picture of a hippo">-->
     
-    <!--The navigation bar for the page. Can not use <ul> because the navBarCode
+    <!--The navigation bar for the page. Can not use <ul> because the navBar
         reads the first attribute-->
     <div id="navbar">
       <a href="#home">Home</a>
@@ -49,7 +50,11 @@
         "http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html" under the section 501.-->
     <!--When uploaded to github a similar error was found. "[HTTP/1.1 403 Forbidden 31ms]"
         Made it easier on myself and used Curran's Code, it worked after.-->
+    <!--SPAAjaxReader file read the json file and keeps it in a global variable.
+        navCode uses this when the blog file is read and inserts the json file there.-->
     <script src="SPAAjaxReader.js"></script>
+    <!--Comes after the previous script since it needs the global variable to have
+        information before it can be used.  This takes care of changing has values.-->
     <script src="navCode.js"></script>
     
   </body>

@@ -1,4 +1,4 @@
-/*File: AssignmentFiveSS.css 
+/*File: navCode.js 
   Author: Eduardo Pozo UMass Lowell Computer Science Major
   Contact Info: eduardo_pozo@student.uml.edu
   Description: This file will handle changing the page using #values.  This code

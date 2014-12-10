@@ -1,11 +1,12 @@
-// File: SPAAjaxReader.js
-// 91.461 Assignment 7: SinglePageApp
-// Made By: Eduardo Pozo, UMass Lowell Computer Sceince
-// Contact Info: eduardo_pozo@student.uml.edu
-// Description: This file will use the ajax process to read a JSON file and 
-// display in a div.  This is meant for a blog post.
-// Created: 11/04/14
-// Last modified: 11/16/14
+/*File: SPAAjaxReader.js
+  91.461 Assignment 7: SinglePageApp
+  Made By: Eduardo Pozo, UMass Lowell Computer Sceince
+  Contact Info: eduardo_pozo@student.uml.edu
+  Description: This file will use the ajax process to read a JSON file and 
+  display in a div.  This is meant for a blog post.  This code was borrowed from Dr. Jesse Heines
+  with small modifications to variable delcarations, and info being added to the strContent.
+  Created: 11/04/14
+  Last modified: 12/10/14*/
   
 // The following section is code provided by Dr.Heines.  Some alterations have been made to variable
 // names but the code structure, and process was borrowed from him.
