@@ -46,7 +46,7 @@ function navigate() {
   getContent(fragmentId, function (content) {
     contentDiv.innerHTML = content;
     if(fragmentId==="blog"){
-      contentDiv.innerHTML = "This is here";
+      contentDiv.innerHTML = strContent;
     }
   });
 // Toggle the "active" class on the link currently navigated to.
