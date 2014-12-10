@@ -25,7 +25,7 @@ flow with a scroll option*/
   height: 500px;
   background-color: white;
   opacity: 0.7;
-  overflow: auto;
+  /*overflow: auto; Took this out because it seems to break the background image*/
 }
 /*Modifying the navbar location here*/
 #navbar{
