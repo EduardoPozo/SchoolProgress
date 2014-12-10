@@ -14,7 +14,8 @@ p{
   margin: 10px;
   font-weight: bold;
 }
-/*Making the navbar float to the left*/
+/*this makes the display place for the content see through and makes any extra data
+flow with a scroll option*/
 #content{
   /*background-color: blue; Used this to find the work area*/
   border: 1px solid;
@@ -24,6 +25,7 @@ p{
   height: 500px;
   background-color: white;
   opacity: 0.7;
+  overflow: auto;
 }
 /*Modifying the navbar location here*/
 #navbar{
