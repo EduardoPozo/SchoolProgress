@@ -42,7 +42,10 @@ function navigate(){
   var contentDiv = document.getElementById("content");
   
   fragmentId = location.hash.substr(1);
-  
+  //uses send fragmentId and and a function that set content divs content
+  getContent(fragmentId, function(content){
+    contentDiv.innerHTML=content;
+  });
   //Adding an if statement so that it renders the JSON file if #blog is selected
   if(fragmentId === blog){
     //since this method doesn't use the call back function I need to declare content
@@ -57,6 +60,7 @@ function navigate(){
         blogPostInfo = data;
       }
     });
+    
     content += "<h1>" + blogPostInfo.title + "</h1>";
     //loop through all the paragraphs and sentences for the content
     for ( var para = 0 ; para < blogPostInfo.text.paragraphs.length ; para++ ) {
@@ -69,12 +73,7 @@ function navigate(){
     //return the info from the JSON into the content div
     contentDiv.innerHTML = content;
   }//This is where Jesse Heine's code ends
-  else{
-    //uses send fragmentId and and a function that set content divs content
-    getContent(fragmentId, function(content){
-      contentDiv.innerHTML=content;
-    });
-  }
+  
   //sets the new active link
   setActiveLink(fragmentId);
 }
