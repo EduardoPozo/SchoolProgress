@@ -39,9 +39,10 @@ function setActiveLink(fragmentId){
 }
 //uses fragmentId to display information based on current state
 function navigate(){
-  var contentDiv = document.getElementById("content");
-  
-  fragmentId = location.hash.substr(1);
+  var contentDiv = document.getElementById("content"),
+  // Isolate the fragment identifier using substr.
+  // This gets rid of the "#" character.
+          fragmentId = location.hash.substr(1);
   //uses send fragmentId and and a function that set content divs content
   getContent(fragmentId, function(content){
     contentDiv.innerHTML=content;
