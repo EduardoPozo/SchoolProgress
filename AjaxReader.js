@@ -66,5 +66,5 @@ function placeContent(){
   }
   // place dynamic content on page
   // document.getElementById( "content" ).innerHTML = strContent ;
-  $("#content").html( strContent ) ;
+  $("#blogDiv").html( strContent ) ;
 }
