@@ -18,7 +18,8 @@
 
 //This variable will hold all date read from the JSON file
 var blogPostInfo;
-
+//Making strContent global in order to use it in another script
+var strContent = "";
 //do{
 // Note to advanced students:
 // Do *NOT* use the jQuery getJSON function here, because in this
@@ -46,8 +47,7 @@ $(document).ready(function(){
 });
   //this function places all content from JSON to a content div
 function placeContent(){
-  var strContent = "";
-
+  
   //create dyanamic content from JSON
   strContent += "<h1 class='title'>" + blogPostInfo.title + "</h1>";
   //loop through all the paragraphs and sentences for the content
