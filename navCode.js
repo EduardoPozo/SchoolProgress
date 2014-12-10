@@ -46,10 +46,6 @@ function navigate() {
   getContent(fragmentId, function (content) {
     contentDiv.innerHTML = content;
   });
-  //If blog file is loaded read the json file here and post it
-  if(fragmentId === blog){
-    AJAXReader();
-  }
 // Toggle the "active" class on the link currently navigated to.
   setActiveLink(fragmentId);
 }
@@ -62,32 +58,3 @@ if (!location.hash) {
 navigate();
 // Navigate whenever the fragment identifier value changes.
 window.addEventListener("hashchange", navigate);
-
-//Specifically made for the blog file to read the json file.  Otherwise innerHTMl
-//won't accept the script tag I wanted to insert to load the ajax reader file.
-function AJAXReader(){
-  var content = "";
-  //reads the JSon file, this AJAX set up was borrowed from Jesse Heines.
-  //His sample code can be found here
-  jQuery.ajax({
-    async: false,
-    dataType: "json",
-    url: "blog.json",
-    success: function(data){
-      blogPostInfo = data;
-    }
-  });
-
-  content += "<h1>" + blogPostInfo.title + "</h1>";
-  //loop through all the paragraphs and sentences for the content
-  for ( var para = 0 ; para < blogPostInfo.text.paragraphs.length ; para++ ) {
-    content += "<p class=\"firefox\">" ;
-    for ( var sent = 0 ; sent < blogPostInfo.text.paragraphs[para].length ; sent++ ) {
-      content += blogPostInfo.text.paragraphs[para][sent] + "&nbsp; " ;
-    }
-    content += "</p>" ;
-  }
-  //return the info from the JSON into the content div
-  contentDiv.innerHTML = content;
-  //This is where Jesse Heine's code ends
-}
