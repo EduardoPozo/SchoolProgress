@@ -45,6 +45,9 @@ function navigate() {
 // Set the "content" div innerHTML based on the fragment identifier.
   getContent(fragmentId, function (content) {
     contentDiv.innerHTML = content;
+    if(fragmentId==="blog"){
+      contentDiv.innerHTML = strContent;
+    }
   });
 // Toggle the "active" class on the link currently navigated to.
   setActiveLink(fragmentId);
