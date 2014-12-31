@@ -9,7 +9,7 @@ Date Created: 10/23/14
 Last Updated 10/31/14px*/
 
 body {
-  background-image: url(http://www.freechristmaswallpapers.net/images/wallpapers/Lonely-Christmas-Tree-800-508849.jpeg);
+  background-image: url("http://www.freechristmaswallpapers.net/images/wallpapers/Lonely-Christmas-Tree-800-508849.jpeg");
 }
 h1{
   color: silver;
