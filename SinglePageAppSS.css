@@ -10,7 +10,7 @@
 /*Set a background image and maximize the size to fit the page non-repeating.
   I also added a different font loaded from googlefonts (suggested by Matt Richie)*/
 body{
-  background-image: url(http://images.fotocommunity.de/bilder/chile/atacamawueste/atacama-hochland-chile-nahe-ojos-del-salado-65cbbc50-4b25-44a0-97df-48219e078921.jpg);
+  background-image: url("http://images.fotocommunity.de/bilder/chile/atacamawueste/atacama-hochland-chile-nahe-ojos-del-salado-65cbbc50-4b25-44a0-97df-48219e078921.jpg");
   background-repeat: no-repeat;
   background-size: 100%;
   font-family: 'EB Garamond', serif;
